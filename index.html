@@ -61,28 +61,9 @@
     color: var(--text);
     overflow-x: hidden;
     transition: background 0.4s, color 0.4s;
-    cursor: none;
   }
 
   /* CUSTOM CURSOR */
-  .cursor-dot {
-    width: 6px; height: 6px;
-    background: var(--accent3);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transition: transform 0.1s;
-    mix-blend-mode: difference;
-  }
-  .cursor-ring {
-    width: 32px; height: 32px;
-    border: 1.5px solid var(--accent);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9998;
-    transition: transform 0.18s ease, width 0.2s, height 0.2s, border-color 0.2s;
-    opacity: 0.7;
-  }
 
   /* SCROLLBAR */
   ::-webkit-scrollbar { width: 4px; }
@@ -853,8 +834,8 @@
         <span class="skill-tag">C</span>
         <span class="skill-tag">C++</span>
         <span class="skill-tag">Python</span>
-        <span class="skill-tag">HTML</span>
-        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">JavaScript</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-1">
@@ -862,8 +843,9 @@
       <div class="skills-list">
         <span class="skill-tag">OpenCV</span>
         <span class="skill-tag">Streamlit</span>
-        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Express.js</span>
         <span class="skill-tag">CLIP</span>
+        <span class="skill-tag">React</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-2">
@@ -872,8 +854,7 @@
         <span class="skill-tag">Arduino</span>
         <span class="skill-tag">ESP32</span>
         <span class="skill-tag">Sensors</span>
-        <span class="skill-tag">BLE</span>
-        <span class="skill-tag">WebSocket</span>
+        <span class="skill-tag">Keil</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-1">
@@ -881,6 +862,7 @@
       <div class="skills-list">
         <span class="skill-tag">LT Spice</span>
         <span class="skill-tag">Tina TI</span>
+        <span class="skill-tag">MongoDB</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-2">
@@ -890,16 +872,6 @@
         <span class="skill-tag">WordPress</span>
         <span class="skill-tag">MS Office</span>
         <span class="skill-tag">Git</span>
-      </div>
-    </div>
-    <div class="skill-group reveal reveal-delay-3">
-      <div class="skill-group-label"><span class="dot"></span>Concepts</div>
-      <div class="skills-list">
-        <span class="skill-tag">Computer Vision</span>
-        <span class="skill-tag">Automation</span>
-        <span class="skill-tag">HCI</span>
-        <span class="skill-tag">Signal Processing</span>
-        <span class="skill-tag">IoT</span>
       </div>
     </div>
   </div>
@@ -1083,29 +1055,6 @@
 </footer>
 
 <script>
-  // CURSOR
-  const dot = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  function animCursor() {
-    dot.style.transform = `translate(${mx - 3}px, ${my - 3}px)`;
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.transform = `translate(${rx - 16}px, ${ry - 16}px)`;
-    requestAnimationFrame(animCursor);
-  }
-  animCursor();
-  document.querySelectorAll('a, button, .project-card, .skill-tag').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      ring.style.width = '48px'; ring.style.height = '48px';
-      ring.style.borderColor = 'var(--accent3)';
-    });
-    el.addEventListener('mouseleave', () => {
-      ring.style.width = '32px'; ring.style.height = '32px';
-      ring.style.borderColor = 'var(--accent)';
-    });
-  });
 
   // THEME TOGGLE
   document.getElementById('themeToggle').addEventListener('click', () => {
